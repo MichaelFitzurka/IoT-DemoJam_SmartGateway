@@ -11,6 +11,6 @@ Contains additons for:
 
 ##Notes:
 Check out the other 2 read me's:  
-A great overview of the project from Patrick Steiner [here](https://github.com/MichaelFitzurka/IoT-DemoJam_SmartGateway/blob/master/Readme.adoc)  
-And a from scratch install instruction set for the Raspberry Pi [here](https://github.com/MichaelFitzurka/IoT-DemoJam_SmartGateway/blob/master/README-Raspberry_Pi.md)
+A great overview of the project from Patrick Steiner [here](https://github.com/MichaelFitzurka/IoT-DemoJam_SmartGateway/blob/master/Original-Readme.adoc)  
+And a "from scratch" install instruction set for the Raspberry Pi [here](https://github.com/MichaelFitzurka/IoT-DemoJam_SmartGateway/blob/master/README-Raspberry_Pi.md)
 
