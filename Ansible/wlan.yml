@@ -1,0 +1,6 @@
+- name: Set up a Wifi access point
+  hosts: gateways
+  remote_user: root
+
+  roles:
+    - {role: "ansible-role-wlan_ap", wlan_physical_device: "wlp0s20u2", wlan_ap_ipaddress: "192.168.42.1/24", wlan_ap_ssid: "iotdemo", wlan_ap_secret: "change12_me"}
