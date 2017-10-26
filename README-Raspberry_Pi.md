@@ -38,9 +38,9 @@ Add:
 
 # define static profile eth0
 profile static_eth0
-static ip_address=10.42.0.3/24
-static routers=10.42.0.1
-static domain_name_servers=10.42.0.1
+static ip_address=192.168.106.202/24
+static routers=192.168.106.1
+static domain_name_servers=192.168.106.1
 
 # fallback to static profile on eth0
 interface eth0
@@ -48,9 +48,9 @@ fallback static_eth0
 
 # define static wlan0
 interface wlan0
-static ip_address=10.42.0.2/24
-static routers=10.42.0.1
-static domain_name_servers=10.42.0.1
+static ip_address=192.168.106.200/24
+static routers=192.168.106.1
+static domain_name_servers=192.168.106.1
 ```
 ---
 ```sh
@@ -59,14 +59,14 @@ $ sudo reboot
 * Now good to go headless via SSH.
 
 ### Continue Pi Setup (Headless)
-* On laptop: (may need to remove 10.42.0.2 from known hosts)
+* On laptop: (may need to remove 192.168.106.200 from known hosts)
 ```sh
 $ sudo vi ~/.ssh/known_hosts
 ```
 * Continue on laptop:
 ```sh
-$ ssh-copy-id -i ~/.ssh/id_rsa pi@10.42.0.2
-$ ssh pi@10.42.0.2
+$ ssh-copy-id -i ~/.ssh/id_rsa pi@192.168.106.200
+$ ssh pi@192.168.106.200
 ```
 ---
 * Edit sudoers to remove password requirement (at your discretion)
@@ -232,34 +232,34 @@ $ docker-compse version
 
 ## Get Code
 ```sh
-$ git clone http://github.com/MichaelFitzurka/Iot_Demo_Gateway.git
+$ git clone http://github.com/MichaelFitzurka/IoT-DemoJam_SmartGateway.git
 ```
-* Copy `apache-maven-3.5.0-bin.tar.gz` to `~/IoT_Demo_Gateway/Base/Docker_Files/software`.
-* Copy `jdk-8u131-linux-arm32-vfp-hflt.tar.gz` to `~/IoT_Demo_Gateway/Base/Docker_Files/software`.
+* Copy `apache-maven-3.5.0-bin.tar.gz` to `~/IoT-DemoJam_SmartGateway/Base/Docker_Files/software`.
+* Copy `jdk-8u131-linux-arm32-vfp-hflt.tar.gz` to `~/IoT-DemoJam_SmartGateway/Base/Docker_Files/software`.
 ---
-* Copy `jboss-fuse-karaf-6.3.0.redhat-187.zip` to `~/IoT_Demo_Gateway/Fuse/Docker_Files/software`.
+* Copy `jboss-fuse-karaf-6.3.0.redhat-187.zip` to `~/IoT-DemoJam_SmartGateway/Fuse/Docker_Files/software`.
 
 ## Build
 ```sh
-$ cd ~/IoT_Demo_Gateway/Smart_Gateway
+$ cd ~/IoT-DemoJam_SmartGateway/Smart_Gateway
 $ mvn clean install
 
-$ cd ~/IoT_Demo_Gateway/Rules_CEP
+$ cd ~/IoT-DemoJam_SmartGateway/Rules_CEP
 $ mvn clean install
 
-$ cd ~/IoT_Demo_Gateway/Base
+$ cd ~/IoT-DemoJam_SmartGateway/Base
 $ docker build --rm -t psteiner/base .
 
-$ cd ~/IoT_Demo_Gateway/Fuse
+$ cd ~/IoT-DemoJam_SmartGateway/Fuse
 $ docker build --rm -t psteiner/fuse .
 
-$ cd ~/IoT_Demo_Gateway
+$ cd ~/IoT-DemoJam_SmartGateway
 $ docker-compose build
 ```
 
 # To Run
 ```sh
-$ cd ~/IoT_Demo_Gateway
+$ cd ~/IoT-DemoJam_SmartGateway
 $ docker-compose up -d
 $ docker-compose logs -f
 ```

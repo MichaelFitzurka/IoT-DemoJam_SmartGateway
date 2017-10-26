@@ -37,7 +37,7 @@
         </dataFormats>
         <!-- Route from local MQTT-Broker to remote JMS Broker in Datacenter -->
         <route id="messagesFromSensor">
-            <from id="_from1" uri="mqtt:mqtt.temp.receiver?host=tcp://localhost:1883&amp;subscribeTopicNames=iotd/#/#&amp;connectWaitInSeconds=600&amp;userName=admin&amp;password=DLT-iot-123!"/>
+            <from id="_from1" uri="mqtt:mqtt.temp.receiver?host=tcp://localhost:1883&amp;subscribeTopicNames=iotdj/#/#&amp;connectWaitInSeconds=600&amp;userName=admin&amp;password=DLT-iot-123!"/>
             <bean beanType="com.redhat.demo.smart_gateway.MyHelper"
                 id="_bean1" method="enhanceMessage" ref="myHelper"/>
             <unmarshal id="_unmarshal1" ref="bindyDataFormat"/>
@@ -47,7 +47,7 @@
         <route id="messagesFromDatacenter">
             <from id="_from2" uri="activemqDatacener:queue:message.back.to.gateway"/>
             <log id="_log1" message="Received message from Datacenter = ${body}"/>
-            <to id="_to2" uri="mqtt:mqtt.temp.recevier?host=tcp://localhost:1883&amp;publishTopicName=iotd-command/light&amp;connectWaitInSeconds=600&amp;userName=admin&amp;password=DLT-iot-123!"/>
+            <to id="_to2" uri="mqtt:mqtt.temp.recevier?host=tcp://localhost:1883&amp;publishTopicName=iotdj-command/light&amp;connectWaitInSeconds=600&amp;userName=admin&amp;password=DLT-iot-123!"/>
         </route>
     </camelContext>
 </beans>
